@@ -1,0 +1,31 @@
+Delivery API (Express + TypeScript + Mongoose)
+
+A production-ready REST API for a food delivery platform built with Node.js, Express, TypeScript, and MongoDB (Mongoose). It covers user authentication, restaurants, products, orders with transactional order items, and reviews. Includes JWT auth, role-based access control, request validation, and robust error handling.
+
+✨ Features
+
+Auth: Register/Login with JWT
+
+RBAC: Roles customer, driver, restaurant
+
+Data Models: Users, Drivers, Restaurants, Products, Orders, OrderItems, Reviews
+
+Transactions: Atomic order creation with order items
+
+Validation: express-validator
+
+Security: helmet, CORS, sanitised JSON parsing
+
+Logging: morgan
+
+TypeScript: Strict types & ES Modules
+
+📦 Tech Stack
+
+Node.js, Express, TypeScript
+
+MongoDB with Mongoose
+
+JSON Web Tokens for auth
+
+dotenv, cors, helmet, morgan
