@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { Product } from "../model/Product";
-import { asyncHandler } from "../utils/asyncHandler";
+import { Product } from "../model/Product.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
 
 export const createProduct = asyncHandler(async (req: Request, res: Response) => {
   const product = await Product.create(req.body);

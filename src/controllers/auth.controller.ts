@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
-import { User } from "../model/User";
-import { signToken } from "../utils/jwt";
-import { asyncHandler } from "../utils/asyncHandler";
+import { User } from "../model/User.js";
+import { signToken } from "../utils/jwt.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
 
 export const register = asyncHandler(async (req: Request, res: Response) => {
   const { name, email, password, phone, role } = req.body as { name: string; email: string; password: string; phone?: string; role?: "customer"|"driver"|"restaurant" };

@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { body } from "express-validator";
-import { auth } from "../middlewares/auth";
-import { createReview, listReviews } from "../controllers/review.controller";
+import { auth } from "../middlewares/auth.js";
+import { createReview, listReviews } from "../controllers/review.controller.js";
 
 const router = Router();
 

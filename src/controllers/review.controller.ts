@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { Review } from "../model/Review";
-import { asyncHandler } from "../utils/asyncHandler";
+import { Review } from "../model/Review.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
 
 export const createReview = asyncHandler(async (req: Request, res: Response) => {
   const review = await Review.create(req.body);

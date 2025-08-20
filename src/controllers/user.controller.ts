@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { User } from "../model/User";
-import { asyncHandler } from "../utils/asyncHandler";
+import { User } from "../model/User.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
 
 export const getUsers = asyncHandler(async (_req: Request, res: Response) => {
   const users = await User.find().select("-password_hash");

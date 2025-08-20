@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import mongoose from "mongoose";
-import {Product} from "../model/Product";
-import {Order} from "../model/Order";
-import {OrderItem} from "../model/OrderItem";
-import { asyncHandler } from "../utils/asyncHandler";
+import {Product} from "../model/Product.js";
+import {Order} from "../model/Order.js";
+import {OrderItem} from "../model/OrderItem.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
 
 export const createOrder = asyncHandler(async (req: Request, res: Response) => {
   const session = await mongoose.startSession();

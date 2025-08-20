@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { verifyToken } from "../utils/jwt";
+import { verifyToken } from "../utils/jwt.js";
 
 export interface AuthedRequest extends Request {user?:{id:string;role:string}}
 export const auth =(req:AuthedRequest,res:Response,next:NextFunction)=>{
