@@ -1,9 +1,14 @@
 import { Request, Response } from "express";
 import { Restaurant } from "../model/Restaurant.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
+import { AuthedRequest } from "../middlewares/auth.js";
 
-export const createRestaurant = asyncHandler(async (req: Request, res: Response) => {
-  const restaurant = await Restaurant.create(req.body);
+export const createRestaurant = asyncHandler(async (req: AuthedRequest, res: Response) => {
+   
+   const restaurant = await Restaurant.create({
+    ...req.body,
+    user_id: req.user?.id
+  });
   res.status(201).json(restaurant);
 });
 
