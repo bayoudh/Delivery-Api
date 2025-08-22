@@ -4,10 +4,11 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { AuthedRequest } from "../middlewares/auth.js";
 
 export const createRestaurant = asyncHandler(async (req: AuthedRequest, res: Response) => {
-   
+  const imageUrl = req.file ? (req.file as any).path : null;
    const restaurant = await Restaurant.create({
     ...req.body,
-    user_id: req.user?.id
+    user_id: req.user?.id,
+    restaurant_photo:imageUrl
   });
   res.status(201).json(restaurant);
 });
