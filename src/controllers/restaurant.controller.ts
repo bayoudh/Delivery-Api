@@ -5,9 +5,12 @@ import { AuthedRequest } from "../middlewares/auth.js";
 
 export const createRestaurant = asyncHandler(async (req: AuthedRequest, res: Response) => {
   const imageUrl = req.file ? (req.file as any).path : null;
+  const user_id=req.user?.id;
+    const exists = await Restaurant.findOne({ user_id });
+    if (exists) return res.status(400).json({ message: "Restaurant already exist" });
    const restaurant = await Restaurant.create({
     ...req.body,
-    user_id: req.user?.id,
+    user_id: user_id,
     restaurant_photo:imageUrl
   });
   res.status(201).json(restaurant);

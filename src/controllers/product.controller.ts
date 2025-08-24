@@ -1,9 +1,17 @@
 import { Request, Response } from "express";
 import { Product } from "../model/Product.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
-
-export const createProduct = asyncHandler(async (req: Request, res: Response) => {
-  const product = await Product.create(req.body);
+import { AuthedRequest } from "../middlewares/auth.js";
+import { Restaurant } from "../model/Restaurant.js";
+export const createProduct = asyncHandler(async (req: AuthedRequest, res: Response) => {
+  const imageUrl = req.file ? (req.file as any).path : null;
+  const user_id=req.user?.id;
+  const restaurant = await Restaurant.findOne({ user_id });
+   const product = await Product.create({
+      ...req.body,
+      restaurant_id: restaurant.id,
+      product_photo:imageUrl
+    });
   res.status(201).json(product);
 });
 

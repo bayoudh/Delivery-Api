@@ -5,7 +5,7 @@ import cloudinary from '../config/cloudinary.js'; // make sure this exports `v2`
 const storage = new CloudinaryStorage({
   cloudinary,
   params: async (_req, file) => ({
-    folder: 'restaurants',
+    folder: _req.body.folder || "restaurants",
     allowed_formats: ['jpg', 'jpeg', 'png', 'webp'],
     public_id: `${Date.now()}-${file.originalname}`,
   }),
