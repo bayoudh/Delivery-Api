@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon --stage local",
     "start": "node --loader ts-node/esm src/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "vercel-build":"echo hello"
   },
   "author": "",
   "license": "ISC",

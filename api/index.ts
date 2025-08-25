@@ -7,14 +7,14 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 
-import connectDB from "./config/db.js";
-import authRoutes from "./routes/auth.routes.js";
-import userRoutes from "./routes/user.routes.js";
-import restaurantRoutes from "./routes/restaurant.routes.js";
-import productRoutes from "./routes/product.routes.js";
-import orderRoutes from "./routes/order.routes.js";
-import reviewRoutes from "./routes/review.routes.js";
-import { notFound, errorHandler } from "./middlewares/error.js";
+import connectDB from "../src/config/db.js";
+import authRoutes from "../src/routes/auth.routes.js";
+import userRoutes from "../src/routes/user.routes.js";
+import restaurantRoutes from "../src/routes/restaurant.routes.js";
+import productRoutes from "../src/routes/product.routes.js";
+import orderRoutes from "../src/routes/order.routes.js";
+import reviewRoutes from "../src/routes/review.routes.js";
+import { notFound, errorHandler } from "../src/middlewares/error.js";
 
 async function start() {
   // Connect to database
