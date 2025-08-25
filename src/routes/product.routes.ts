@@ -10,7 +10,7 @@ const router = Router();
 
 router.get("/", listProducts);
 router.get("/:id", getProduct);
-router.post("/",isRole(["restaurant"]), auth,upload.single("product_photo"),[body("name").notEmpty(), body("price").isFloat({ gt: 0 })], createProduct);
-router.put("/:id", auth, updateProduct);
-router.delete("/:id", auth, deleteProduct);
+router.post("/", auth,isRole(["restaurant"]),upload.single("product_photo"),[body("name").notEmpty(), body("price").isFloat({ gt: 0 })], createProduct);
+router.put("/:id", auth,isRole(["restaurant"]), updateProduct);
+router.delete("/:id", auth,isRole(["restaurant"]),deleteProduct);
 export default router;
