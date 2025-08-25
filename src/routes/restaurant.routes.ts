@@ -10,7 +10,7 @@ const router = Router();
 router.get("/", listRestaurants);
 router.get("/:id", getRestaurant);
 router.post("/", auth,isRole(["restaurant"]),upload.single("restaurant_photo") ,[body("name").notEmpty()], createRestaurant);
-router.put("/:id",isRole(["restaurant"]), auth, updateRestaurant);
-router.delete("/:id",isRole(["restaurant"]), auth, deleteRestaurant);
+router.put("/:id", auth,isRole(["restaurant"]),upload.single("restaurant_photo"), updateRestaurant);
+router.delete("/:id", auth,isRole(["restaurant"]), deleteRestaurant);
 
 export default router;
